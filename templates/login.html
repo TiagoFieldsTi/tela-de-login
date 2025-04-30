@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST">
+        <label>Usuário:</label>
+        <input type="text" name="usuario" required><br><br>
+        <label>Senha:</label>
+        <input type="password" name="senha" required><br><br>
+        <button type="submit">Entrar</button>
+    </form>
+    <p><a href="{{ url_for('registrar') }}">Registrar novo usuário</a></p>
+</body>
+</html>
